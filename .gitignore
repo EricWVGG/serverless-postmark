@@ -1,0 +1,14 @@
+.nimbella
+__deployer__.zip
+__pycache__/
+node_modules
+.DS_Store
+coverage/
+package-lock.json
+lib/
+.nova
+.do
+.deployed
+deploy.sh
+test.sh
+.env

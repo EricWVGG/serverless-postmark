@@ -1,0 +1,19 @@
+parameters: {}
+environment: {}
+packages:
+  - name: serverless-postmark
+    shared: false
+    environment: {}
+    parameters: {}
+    annotations: {}
+    functions:
+      - name: send
+        binary: false
+        main: ""
+        runtime: nodejs:18
+        web: true
+        webSecure: false
+        parameters: {}
+        environment: { POSTMARK_API_KEY: "${POSTMARK_API_KEY}", WHITELIST: "${WHITELIST}", POSTMARK_SENDER: "${POSTMARK_SENDER}" }
+        annotations: {}
+        limits: { memory: 512 }
