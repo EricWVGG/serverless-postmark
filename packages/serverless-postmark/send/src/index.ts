@@ -30,10 +30,12 @@ export const main = async ({ name, email, subject, message, referer }: Event) =>
   if (typeof whitelist !== "object") {
     throw new Error("Invalid whitelist.")
   }
-  const recipient = Object.keys(whitelist).reduce((acc, validDomain) => (acc || startsWith(referer, validDomain) ? whitelist[validDomain] : undefined), undefined)
+  const recipientDomain = Object.keys(whitelist).find((validDomain) => referer.includes(validDomain))
+  const recipient = whitelist[recipientDomain]
   if (!recipient) {
     throw new Error("Domain is not whitelisted.")
   }
+  console.log("recipient", recipient)
 
   const client = new postmark.ServerClient(process.env.POSTMARK_API_KEY!)
 
