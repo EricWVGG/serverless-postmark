@@ -1,5 +1,4 @@
 import * as postmark from "postmark"
-import { startsWith } from "lodash-es"
 
 interface Event {
   name: string
