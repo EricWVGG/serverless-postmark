@@ -33,3 +33,9 @@ const submit = ({ name, email, subject, message }: Record<string, string>) => {
   console.log(response)
 }
 ```
+
+TODO: This could be secured by using its own API endpoint and including a bearer token. Basic CORS shit would prevent abuse.
+
+However, I want to use this on static sites that don't have an API. A bearer token would necessarily have to be in the client code, so it's effectively useless.
+
+Since the recipients only exist on the DO function, there's no way for an abuser to know where there spam is going to wind up, so it's not really worth their bother to crack this and only be able to pester one individual.
